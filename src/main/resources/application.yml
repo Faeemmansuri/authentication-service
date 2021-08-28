@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:  application:    name: authentication-service
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3306}/${DB_NAME:microservice}?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  messages:
+    basename: META-INF/i18n/messages
+    encoding: UTF-8
+    cache-duration:
+      seconds: 30
+    use-code-as-default-message: true
+  mvc:
+    locale: en_US
+    
+  # email configuration
+  
+  mail:
+    default-encoding: UTF-8
+    host: ${EMAIL_HOST:smtp.gmail.com}
+    username: ${EMAIL_USER:<you@yourmail.com>}
+    password: ${EMAIL_PASS:<email_password>}
+    port: ${EMAIL_PORT:587}
+    protocol: ${EMAIL_PROTOCOL:smtp}
+    properties:
+      "mail.transport.protocol": ${EMAIL_PROTOCOL:smtp}
+      "mail.smtp.starttls.enable": true
+      "mail.smtp.auth": true
+    
+#custom properties
+jsonwebtoken:
+  secretKey: ${JWT_SECRET:E238B9257E8AEF5543458721BE85A}
+  issuer: ${JWT_ISSUER:com.faeem.microservice}

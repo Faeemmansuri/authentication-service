@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:remove="all" th:text="${subject}">Subject Goes Hesre</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p>
+      Hello, <span th:text="${name}">Peter Static!</span>
+    </p>
+    
+      You have been successfully registered to the <b>App</b>.
+     
+    </p>
+      Please verify your email address <a th:href="${vetificationLink}">Verify</a>
+    </p>
+    <p>
+      Regards, <br />
+      <em>The Thymeleaf Team</em>
+    </p>
+  </body>
+</html>
